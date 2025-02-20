@@ -180,6 +180,7 @@ SECRET_KEY = 'django-insecure-v#7hx))dpblu4s0+jdmt66pf@@vbxhpq!o_=oz^p=+aa1_=_j4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -191,7 +192,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'jobs',
+    
 ]
+AUTH_USER_MODEL = 'jobs.CustomUser'
+AUTH_USER_MODEL = 'jobs.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -223,10 +228,28 @@ ROOT_URLCONF = 'job_portal.urls'
 
 # settings.py
 
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Ensure this is correctly set
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # Ensure this is correctly set
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),  # Make sure this is included
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
